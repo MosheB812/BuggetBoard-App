@@ -1,0 +1,26 @@
+<mat-card>
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          ID: 258369
+        </mat-panel-title>
+        <mat-panel-description>
+          Brief issue description will be posted here.
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <mat-form-field>
+        <div class="card-grid-container">
+          <button mat-flat-button color="accent" class="btnEdit" (click)="onAddBug()">edit</button>
+          <textarea matInput readonly rows=" 10" class="taSummary" [(ngModel)]="enteredValue"></textarea>
+          <label class="lblStatus"><b>Status:</b> Open</label>
+          <label class="lblOwner"><b>Owner:</b> Moshe B.</label>
+          <label class="lblCreatedBy"><b>Created By:</b> John S.</label>
+          <label class="lblCreatedOn"><b>Created On:</b> Mar 28, 2020</label>
+        </div>
+      </mat-form-field>
+    </mat-expansion-panel>
+  </mat-accordion>
+</mat-card>
+
+<!-- <p>{{ newBug }}</p> -->
