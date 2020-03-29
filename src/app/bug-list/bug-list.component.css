@@ -12,7 +12,9 @@ textarea
 ::ng-deep .mat-form-field-underline {
   display: none;
 }
-
+.info-txt {
+  text-align: center;
+}
 .btnEdit {
   grid-area: btnEdit;
   width: 30px;

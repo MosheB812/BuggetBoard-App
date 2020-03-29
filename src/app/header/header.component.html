@@ -1,10 +1,11 @@
 <mat-toolbar color="primary">
   <h1>Bugget Board</h1>
   <div class="divMenu">
+    <button class="btnCreateBug" mat-raised-button color="accent" (click)="createBug()">New Bug</button>
     <button class="btnMenu" mat-raised-button color="primary" [matMenuTriggerFor]="menu">Menu <i></i></button>
 
     <mat-menu #menu="matMenu">
-      <button mat-menu-item [matMenuTriggerFor]="groups">Groups</button>
+      <button mat-menu-item [matMenuTriggerFor]="groups">Change Group</button>
     </mat-menu>
     <mat-menu #groups="matMenu">
       <button mat-menu-item>Group1</button>

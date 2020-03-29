@@ -9,16 +9,19 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatExpansionModule } from "@angular/material/expansion";
 import { MatMenuModule } from "@angular/material/menu";
+import { MatDialogModule } from "@angular/material/dialog";
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from "./header/header.component";
-import { BugCreateComponent } from './bug-create/bug-create.component';
+import { BugListComponent } from './bug-list/bug-list.component';
+import { NewBugDiagComponent } from './new-bug-diag/new-bug-diag.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    BugCreateComponent
+    BugListComponent,
+    NewBugDiagComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +32,8 @@ import { BugCreateComponent } from './bug-create/bug-create.component';
     MatButtonModule,
     MatToolbarModule,
     MatExpansionModule,
-    MatMenuModule
+    MatMenuModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
