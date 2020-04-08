@@ -1,3 +1,28 @@
+/* HEADER */
+
+.divMenu {
+  position: absolute;
+  right: 50px;
+}
+button {
+  width: 120px;
+}
+.btnMenu {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+i {
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 4px;
+  margin-left: 3px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+/* BODY */
+
 mat-card {
   width: 70%;
   margin: auto;

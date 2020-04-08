@@ -1,0 +1,50 @@
+<!-- HEADER -->
+
+<mat-toolbar color="primary">
+  <h1>Bugget Board</h1>
+  <div class="divMenu">
+    <button class="btnCreateBug" mat-raised-button color="accent" (click)="newBug()">New Bug</button>
+    <button class="btnMenu" mat-raised-button color="primary" [matMenuTriggerFor]="menu">Menu <i></i></button>
+
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>Create Group</button>
+      <button mat-menu-item [matMenuTriggerFor]="groups">Change Group</button>
+    </mat-menu>
+    <mat-menu #groups="matMenu">
+      <button mat-menu-item>Group1</button>
+      <button mat-menu-item>Group2</button>
+      <button mat-menu-item>Group3</button>
+      <button mat-menu-item>Group4</button>
+    </mat-menu>
+
+    <button class="btnLogout" mat-flat-button color="primary">Logout</button>
+  </div>
+</mat-toolbar>
+
+<!-- BODY -->
+<div (bugEvent)="receiveMessage($event)"></div>
+<mat-card>
+  <mat-accordion *ngIf="bugList.length > 0">
+    <mat-expansion-panel *ngFor="let bug of bugList">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          ID: {{bug.id}}
+        </mat-panel-title>
+        <mat-panel-description>
+          {{ bug.description }}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <mat-form-field>
+        <div class="card-grid-container">
+          <button mat-flat-button color="accent" class="btnEdit">edit</button>
+          <textarea matInput readonly rows=" 10" class="taSummary"> {{ bug.summary }} </textarea>
+          <label class="lblStatus"><b>Status:</b> {{ bug.status }}</label>
+          <label class="lblOwner"><b>Owner:</b> {{ bug.owner }}</label>
+          <label class="lblCreatedBy"><b>Created By:</b> {{ bug.createdBy }}</label>
+          <label class="lblCreatedOn"><b>Created On:</b> {{ bug.createdOn }}</label>
+        </div>
+      </mat-form-field>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <h3 class="info-txt mat-body-1" *ngIf="bugList.length <= 0">No bugs created so far!</h3>
+</mat-card>

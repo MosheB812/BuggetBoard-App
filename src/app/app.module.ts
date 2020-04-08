@@ -12,15 +12,13 @@ import { MatMenuModule } from "@angular/material/menu";
 import { MatDialogModule } from "@angular/material/dialog";
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from "./header/header.component";
-import { BugListComponent } from './bug-list/bug-list.component';
+import { BuggetboardComponent } from "./buggetboard/buggetboard.component";
 import { NewBugDiagComponent } from './new-bug-diag/new-bug-diag.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    BugListComponent,
+    BuggetboardComponent,
     NewBugDiagComponent
   ],
   imports: [

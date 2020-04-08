@@ -13,20 +13,20 @@
 <br>
 <mat-form-field appearance="fill">
   <mat-label>Brief Description</mat-label>
-  <input matInput>
+  <input matInput #inDescription>
 </mat-form-field>
 
 <mat-form-field appearance="fill">
   <mat-label>Summary</mat-label>
-  <textarea rows="7" matInput></textarea>
+  <textarea rows="7" matInput #txtSummary></textarea>
 </mat-form-field>
 
 <mat-form-field appearance="fill">
   <mat-label>Owner</mat-label>
-  <input matInput>
+  <input matInput #inOwner>
 </mat-form-field>
 
 <mat-dialog-actions>
-  <button mat-raised-button (click)="save()">Save</button>
+  <button mat-raised-button (click)="save(inDescription, txtSummary, inOwner)">Save</button>
   <button mat-button (click)="cancel()">Cancel</button>
 </mat-dialog-actions>
