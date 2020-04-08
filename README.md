@@ -20,6 +20,7 @@ This is a simple bug tracking application. It allows users to create accounts an
 - [ ] Connect DB to application
 - [ ] Create SQL queries write data
 - [ ] Create SQL queries read data
+- [ ] Create AWS API Gateway, middle man between app and DB
 - [ ] Create Docker containers and images for Angular App and MySQL DB
 - [ ] Create Docker-Compose and configure Docker network
 - [ ] Publish app and DB to AWS (AWS tools still yet to be defined..)
