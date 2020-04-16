@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http";
 
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
@@ -16,6 +17,8 @@ import { AppComponent } from './app.component';
 import { BuggetboardComponent } from "./buggetboard/buggetboard.component";
 import { NewBugDiagComponent } from './new-bug-diag/new-bug-diag.component';
 
+import { ApiService } from "./Services/api/api.service";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +28,7 @@ import { NewBugDiagComponent } from './new-bug-diag/new-bug-diag.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     FormsModule,
     MatInputModule,
     MatCardModule,
@@ -35,7 +39,7 @@ import { NewBugDiagComponent } from './new-bug-diag/new-bug-diag.component';
     MatDialogModule,
     MatSnackBarModule
   ],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

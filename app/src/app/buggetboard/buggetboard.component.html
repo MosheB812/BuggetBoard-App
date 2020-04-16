@@ -23,8 +23,8 @@
 
 <!-- BODY -->
 <mat-card>
-  <mat-accordion *ngIf="bugList.length > 0">
-    <mat-expansion-panel *ngFor="let bug of bugList">
+  <mat-accordion *ngIf="BugList.length > 0">
+    <mat-expansion-panel *ngFor="let bug of BugList">
       <mat-expansion-panel-header>
         <mat-panel-title>
           ID: {{bug.id}}
@@ -45,5 +45,5 @@
       </mat-form-field>
     </mat-expansion-panel>
   </mat-accordion>
-  <h3 class="info-txt mat-body-1" *ngIf="bugList.length <= 0">No bugs created so far!</h3>
+  <h3 class="info-txt mat-body-1" *ngIf="BugList.length <= 0">No bugs created so far!</h3>
 </mat-card>

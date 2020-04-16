@@ -1,7 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { NewBugDiagComponent } from "../new-bug-diag/new-bug-diag.component";
+
+import { Bug } from "../Models/bug.model";
+import { ApiService } from '../Services/api/api.service';
 
 @Component({
   selector: 'app-buggetboard',
@@ -9,31 +12,21 @@ import { NewBugDiagComponent } from "../new-bug-diag/new-bug-diag.component";
   styleUrls: ['./buggetboard.component.css']
 })
 
-export class BuggetboardComponent {
+export class BuggetboardComponent implements OnInit {
 
-  // List of known bugs created so far
-  bugList = [
-    {
-      id: '258369',
-      description: 'Brief issue description will be posted here1',
-      summary: 'dummy summary 1',
-      status: 'Open',
-      owner: 'Moshe B.',
-      createdBy: 'John S.',
-      createdOn: 'Mar 28, 2020'
-    },
-    {
-      id: '147285',
-      description: 'Brief issue description will be posted here2',
-      summary: 'dummy summary 2',
-      status: 'Closed',
-      owner: 'Moshe B.',
-      createdBy: 'John S.',
-      createdOn: 'Mar 28, 2020'
-    }
-  ];
+  // Data store variable for data from API fetch
+  BugList: Bug[] = [];
 
-  constructor(public _dialog: MatDialog, private _snackBar: MatSnackBar) { }
+  constructor(
+    public _dialog: MatDialog,
+    private _snackBar: MatSnackBar,
+    private _apiService: ApiService
+  ) { }
+
+  ngOnInit() {
+    return this._apiService.getBugLists()
+      .subscribe(data => { this.BugList = data; });
+  }
 
   // New Bug button was pressed, show the dialog form to be filled
   newBug(): void {
@@ -51,19 +44,27 @@ export class BuggetboardComponent {
     // Dialog window has been closed, process the passed object
     dialogRef.afterClosed().subscribe(data => {
 
-      if (data.description == '' || data.owner == '' || data.summary == '') {
+      if (!data) {
+        // Clicked away do nothing
+      } else if (data.description == '' || data.owner == '' || data.summary == '') {
         // Empty form fields, notify and do nothing
+        console.log('empty forms');
         this._snackBar.open('Empty form fields, try again.', 'close', {
           duration: 4000,
         });
       } else if (data) {
+        console.log('2');
         // Submit was pressed, save the data
-        this.bugList.push(data);
-      } else {
-        // Cancel was pressed, ignore the data
-        console.log('Dialog cancelled, no data to save.');
+        console.log('POST Bug.....');
+
+        this._apiService.postBug(data)
+          .subscribe(data => {
+            console.log('DATA POSTED. Return value: ');
+            console.log(data);
+          });
       }
 
     });
+
   }
 }
