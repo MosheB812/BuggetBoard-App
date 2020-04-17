@@ -45,5 +45,5 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 [ Run on AWS ]
 To publish a local change:
 - Commit to github
-- Run `ng build && npm run aws-deploy`
+- Run `npm run build && npm run aws-deploy`
 - Website will be hosted on the s3 bucket name (**not public**)
