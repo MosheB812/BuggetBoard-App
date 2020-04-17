@@ -43,7 +43,5 @@ This is a simple bug tracking application. It allows users to create accounts an
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 [ Run on AWS ]
-To publish a local change:
-- Commit to github
-- Run `npm run build && npm run aws-deploy`
-- Website will be hosted on the s3 bucket name (**not public**)
+GitHub actions are used to automate CI/CD. Script is created (`.github/workflows/main.yml`) to automate building the Angular app and deploying it to s3.
+**Note:** Environment variables are required  and are defined under `Settings/Secrets`.
