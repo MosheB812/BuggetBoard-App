@@ -23,7 +23,9 @@ jobs:
     #     node-version: $
 
     - name: npm install, npm build
-      run: npm run build
+      run: |
+        cd app/
+        npm run build
 
     - name: deploy
       run: npm run aws-deploy
