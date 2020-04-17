@@ -51,6 +51,7 @@ textarea
   resize: none;
 }
 
+.lblGNum {grid-area: lblGNum;}
 .lblStatus {grid-area: lblStatus;}
 .lblOwner {grid-area: lblOwner;}
 .lblCreatedBy {grid-area: lblCreatedBy;}
@@ -61,6 +62,7 @@ textarea
   grid-template-areas:
     'taSummary taSummary taSummary taSummary btnEdit'
     'taSummary taSummary taSummary taSummary btnEdit'
+    'taSummary taSummary taSummary taSummary lblGNum'
     'taSummary taSummary taSummary taSummary lblStatus'
     'taSummary taSummary taSummary taSummary lblOwner'
     'taSummary taSummary taSummary taSummary lblCreatedBy'

@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { NewBugDiagComponent } from "../new-bug-diag/new-bug-diag.component";
 
-import { Bug } from "../Models/bug.model";
+import { Bug, Group } from "../Models/models.model";
 import { ApiService } from '../Services/api/api.service';
 
 @Component({
@@ -15,6 +15,7 @@ import { ApiService } from '../Services/api/api.service';
 export class BuggetboardComponent implements OnInit {
 
   // Data store variable for data from API fetch
+  GroupList: Group[] = [];
   BugList: Bug[] = [];
 
   constructor(
@@ -24,8 +25,9 @@ export class BuggetboardComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    return this._apiService.getBugLists()
-      .subscribe(data => { this.BugList = data; });
+    this._apiService.getBugList().subscribe(data => { this.BugList = data; })
+    this._apiService.getGroupList().subscribe(data => { this.GroupList = data; })
+    return;
   }
 
   // New Bug button was pressed, show the dialog form to be filled
