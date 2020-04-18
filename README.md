@@ -34,6 +34,10 @@ This is a simple bug tracking application. It allows users to create accounts an
 ## TOOLS
 
 - This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.0.
+- Git/GitHub for source control.
+- GitHub Action Workflow to CI/CD into AWS.
+- AWS s3 configured for static website hosting.
+- AWS Route53 for domain hosting.
 
 ## CLI Commands
 
