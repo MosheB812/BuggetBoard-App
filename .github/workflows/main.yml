@@ -31,4 +31,4 @@ jobs:
     - name: Publish to S3
       run: |
         cd app/
-        npm run aws-s3-publish
+        aws s3 sync dist/BuggetBoard-App/ {{ S3_BUCKET_BUGGETBOARD }}
