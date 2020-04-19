@@ -31,4 +31,4 @@ jobs:
     - name: Publish to S3
       run: |
         cd app/
-        aws s3 sync dist/BuggetBoard-App/ {{ secrets.S3_BUCKET_BUGGETBOARD }}
+        aws s3 sync dist/BuggetBoard-App/ ${{ secrets.S3_BUCKET_BUGGETBOARD }}
