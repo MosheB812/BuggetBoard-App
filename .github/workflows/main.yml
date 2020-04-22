@@ -19,7 +19,7 @@ jobs:
     - name: npm install, npm build
       run: |
         cd app/
-        npm install && npm run build
+        npm install && npm run build-prod
 
     - name: Configure AWS CLI
       uses: aws-actions/configure-aws-credentials@v1
@@ -31,5 +31,4 @@ jobs:
     - name: Build and Publish to S3
       run: |
         cd app/
-        ng build --prod
         aws s3 sync dist/BuggetBoard-App/ ${{ secrets.S3_BUCKET_BUGGETBOARD }}
