@@ -28,7 +28,8 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-1
 
-    - name: Publish to S3
+    - name: Build and Publish to S3
       run: |
         cd app/
+        ng build --prod
         aws s3 sync dist/BuggetBoard-App/ ${{ secrets.S3_BUCKET_BUGGETBOARD }}
