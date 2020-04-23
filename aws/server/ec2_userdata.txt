@@ -13,6 +13,7 @@ git init
 git remote add origin -f https://github.com/MoB812/BuggetBoard-App.git
 git config core.sparseCheckout true
 echo "/aws/server" > .git/info/sparse-checkout
+git pull origin master
 cd aws/server
 
 # Download Angular dist files from S3
@@ -23,3 +24,34 @@ npm install
 
 # Run server on port 3000
 node server.js
+
+
+=====
+
+
+#!/bin/bash
+
+# Update and install Nodejs,Git
+yum update -y
+curl -sL https://rpm.nodesource.com/setup_14.x | bash -
+yum install -y nodejs
+yum install -y git
+npm install -g pm2
+
+# Create server directory and download NodeJS server files from GitHub repo
+mkdir /home/ec2-user/app-server && cd /home/ec2-user/app-server
+git init
+git remote add origin -f https://github.com/MoB812/BuggetBoard-App.git
+git config core.sparseCheckout true
+echo "/aws/server" > .git/info/sparse-checkout
+git pull origin master
+cd aws/server
+
+# Download Angular dist files from S3
+aws s3 sync s3://buggetboard.com dist
+
+# Install Node Dependencies
+npm install
+
+# Start pm2 to start server
+runuser -l ec2-user -c "pm2 start server.js"
