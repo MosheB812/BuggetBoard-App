@@ -1,0 +1,32 @@
+CREATE DATABASE BuggetBoard;
+
+CREATE TABLE User (
+    UID         VARCHAR(255) NOT NULL UNIQUE,
+    FirstName   VARCHAR(255) NOT NULL,
+    LastName    VARCHAR(255) NOT NULL,
+    PRIMARY KEY (UID)
+);
+
+CREATE TABLE Group (
+    GID         VARCHAR(255) NOT NULL UNIQUE,
+    GroupName   VARCHAR(255) NOT NULL,
+    CreatedBy   VARCHAR(255) NOT NULL,
+    UID         VARCHAR(255) NOT NULL,
+    PRIMARY KEY (GID),
+    FOREIGN KEY (UID) REFERENCES User(UID)
+);
+
+CREATE TABLE Bug (
+    BID         VARCHAR(255) NOT NULL UNIQUE,
+    GID         VARCHAR(255) NOT NULL,
+    Desc        VARCHAR(255),
+    Summary     VARCHAR(255) NOT NULL,
+    Status      VARCHAR(255) NOT NULL,
+    Owner       VARCHAR(255) NOT NULL,
+    CreatedBy   VARCHAR(255) NOT NULL,
+    CreatedOn   DATE NOT NULL,
+    PRIMARY KEY (BID),
+    FOREIGN KEY (GID) REFERENCES Group(GID),
+    FOREIGN KEY (Owner) REFERENCES User(UID),
+    FOREIGN KEY (CreatedBy) REFERENCES User(UID)
+);
