@@ -20,7 +20,7 @@ export class NewBugDiagComponent implements OnInit {
 
     // Save the form data to new bug object
     const newBug = {
-      id: this.data.id,
+      id: '',
       createdOn: this.data.currentDate,
       createdBy: this.data.createdBy,
       description: desc.value,
