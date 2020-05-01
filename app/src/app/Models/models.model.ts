@@ -1,15 +1,15 @@
 export interface Bug {
-  id: string;
-  gid: string;
-  description: string;
-  summary: string;
-  status: string;
-  owner: string;
-  createdBy: string;
-  createdOn: string;
+  BID: string;
+  GID: string;
+  Description: string;
+  Summary: string;
+  Status: string;
+  Owner: string;
+  CreatedBy: string;
+  CreatedOn: string;
 }
 
 export interface Group {
-  gid: string;
-  gName: string;
+  GID: string;
+  GroupName: string;
 }
